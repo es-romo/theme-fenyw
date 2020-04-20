@@ -1,0 +1,29 @@
+<div class="r-custom-banner">
+  <div class="r-wrapper">
+    <p>{{ section.settings.header }}</p>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "CustomBanner",
+    "settings": [
+      {
+        "id": "header",
+        "type": "text",
+        "label": "Header",
+        "default": "Hello world"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+	.r-custom-banner{
+		background-color: #333;
+	}
+	div .r-wrapper > * {
+		color: white;
+		text-align: center;
+	}
+{% endstylesheet %}

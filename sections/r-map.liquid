@@ -1,0 +1,121 @@
+<hr>
+<div class="r-section-map-title">
+  <h1 class="r-mb-0"> {{section.settings.header}} </h1>
+</div>
+
+{% if section.settings.subtext != blank %}
+<div class="r-section-map-subtext">
+  <p> {{section.settings.subtext}} </p>
+</div>
+{% endif %}
+
+{% if section.settings.address %}
+<div class="r-section-map-address">
+  {{section.settings.address}}
+</div>
+{% endif %}
+
+{%if section.settings.source != blank %}
+	<div class="r-map-content">
+      	<iframe src="{{section.settings.source}}" width="{{section.settings.width}}" height="{{section.settings.height}}" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Map Link",
+	"class": "r-align-center",
+    "settings": [
+		{        
+		 "type": "header",
+         "content": "Text"
+		},
+		{
+         "id": "header",
+         "type": "text",
+         "label": "Header",
+         "default": "Header"
+		},		
+		{
+         "id": "subtext",
+         "type": "text",
+         "label": "Subtext",
+		 "default": "Subtext"
+		},
+		{
+		 "id": "address",
+		 "type": "richtext",
+		 "label": "Address"
+		},
+		{        
+		 "type": "header",
+         "content": "Map"
+		},
+		{
+		 "id": "source",
+		 "type": "text",
+		 "label": "Source",
+		 "default": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.1516521634194!2d-79.39804428422278!3d43.6450130609775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d9251619db%3A0x4c249822c717c8ab!2sShopify!5e0!3m2!1sen!2smx!4v1564341202745!5m2!1sen!2smx"
+		},
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Map width",
+          "default": "100%",
+          "options": [
+            {
+              "value": "25%",
+              "label": "25%"
+            },
+            {
+              "value": "33%",
+              "label": "33%"
+            },
+            {
+              "value": "50%",
+              "label": "50%"
+            },
+            {
+              "value": "66%",
+              "label": "66%"
+            },
+            {
+              "value": "75%",
+              "label": "75%"
+            },
+            {
+              "value": "100%",
+             "label": "100%"
+            }
+           ]
+         },
+	     {
+          "type": "select",
+          "id": "height",
+          "label": "Map height",
+          "default": "450px",
+          "options": [
+            {
+              "value": "450px",
+              "label": "450px"
+            },
+            {
+              "value": "350px",
+              "label": "350px"
+            },
+            {
+              "value": "300px",
+              "label": "300px"
+            }
+           ]
+          }
+	],
+	"presets":
+	[
+	 {
+	  "name": "Map Link",
+	  "category": "Store Information"
+	 }
+	]
+  }
+{% endschema %}
