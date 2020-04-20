@@ -5676,6 +5676,7 @@ $color-blankstate-background: rgba($colorTextBody, 0.1);
   } 
 }
 
+ // Medium-down screens
 @include at-query ($max, $medium) {
   .header-logo{
   	margin: 0;
@@ -5693,5 +5694,12 @@ $color-blankstate-background: rgba($colorTextBody, 0.1);
   .section-header--title{
   	margin-top: 15px;
     margin-bottom: 15px;
+  }
+}
+
+
+@include at-query ($max, $small) {
+  .no-display-mobile{
+    display: none;
   }
 }
