@@ -99,6 +99,17 @@
     <a class="menu-toggle mobileNavBar-link"><span class="icon icon-hamburger"></span>{{ 'layout.navigation.mobile_menu' | t }}</a>
   </div>
   <div class="display-table-cell">
+    {%- assign mobile_url = section.settings.mobile_logo | mobile_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+    {% capture mobile_alt %}{{ section.settings.mobile_logo.alt | default: shop.name }}{% endcapture %}
+    <img class="lazyload js"
+                  data-src="{{ mobile_url }}"
+                  data-heights="[50, 75]"
+                  data-aspectratio="{{ section.settings.mobile_logo.aspect_ratio }}"
+                  data-sizes="auto"
+                  alt="{{ mobile_alt | escape }}"
+                  style="height: 75px;">
+  </div>
+  <div class="display-table-cell">
     <a href="/cart" class="cart-toggle mobileNavBar-link">
       <span class="icon icon-cart"></span>
       {{ 'layout.cart.cart' | t }} <span class="cart-count {% if cart.item_count == 0 %}hidden-count{% endif %}">{{ cart.item_count }}</span>
@@ -124,7 +135,7 @@
       {
         "type": "image_picker",
         "id": "logo",
-        "label": "Custom logo",
+        "label": "Custom desktop logo",
         "info": "400px wide .png recommended"
       },
       {
@@ -132,6 +143,12 @@
         "id": "logo_max_width",
         "label": "Custom logo width",
         "default": "305"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_logo",
+        "label": "Custom mobile logo",
+        "info": "100px high .png recommended"
       },
       {
         "type": "header",
